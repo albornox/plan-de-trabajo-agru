@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Trabajo AGRU - 6 Meses</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 10px;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 { font-size: 24px; margin-bottom: 5px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        
+        .controls {
+            padding: 15px;
+            background: #ecf0f1;
+            text-align: right;
+        }
+        
+        .btn {
+            background: #27ae60;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        .btn:hover { background: #219a52; }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            max-height: 80vh;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            min-width: 1200px;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        .mes-col { 
+            background: #3498db; 
+            color: white; 
+            font-weight: bold; 
+            text-align: center; 
+            width: 80px;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+        }
+        
+        .semana-col { 
+            background: #ecf0f1; 
+            font-weight: bold; 
+            text-align: center; 
+            width: 50px; 
+        }
+        
+        .webmaster-col { background: #fff3e0; width: 280px; }
+        .seo-col { background: #e8f5e8; width: 280px; }
+        .sem-col { background: #f3e5f5; width: 280px; }
+        .entregable-col { background: #e3f2fd; width: 200px; font-weight: bold; }
+        
+        .actividad {
+            margin-bottom: 4px;
+            padding: 2px 0;
+            line-height: 1.3;
+        }
+        
+        .categoria {
+            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 1px solid #bdc3c7;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+            font-size: 10px;
+        }
+        
+        .destacado { 
+            background: #f39c12; 
+            color: white; 
+            padding: 2px 4px; 
+            border-radius: 3px; 
+            font-weight: bold;
+        }
+        
+        .resumen {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .resumen h3 { 
+            color: #3498db; 
+            margin-bottom: 15px; 
+        }
+        
+        .resumen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .resumen-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .resumen-item h4 { 
+            color: #3498db; 
+            margin-bottom: 8px; 
+        }
+        
+        .resumen-item p { 
+            margin-bottom: 5px; 
+            font-size: 13px; 
+        }
+        
+        @media (max-width: 768px) {
+            table { font-size: 9px; }
+            th, td { padding: 5px 3px; }
+            .header h1 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PLAN DE TRABAJO AGRU CHILE Y BRASIL</h1>
+            <p>Webmaster Básico + SEO + SEM | Duración: 6 Meses | Presupuesto SEM: USD $150/mes Chile + $150/mes Brasil</p>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="exportToCSV()">📊 Exportar CSV</button>
+            <button class="btn" onclick="window.print()">🖨️ Imprimir</button>
+        </div>
+        
+        <div class="table-wrapper">
+            <table id="mainTable">
+                <thead>
+                    <tr>
+                        <th>MES</th>
+                        <th>SEM</th>
+                        <th>ACTIVIDADES WEBMASTER BÁSICAS</th>
+                        <th>ACTIVIDADES SEO</th>
+                        <th>ACTIVIDADES SEM</th>
+                        <th>ENTREGABLES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- MES 1 -->
+                    <tr>
+                        <td rowspan="4" class="mes-col">MES 1<br>CONFIG</td>
+                        <td class="semana-col">S1</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">SETUP INICIAL</div>
+                            <div class="actividad">• Configuración backups automáticos básicos</div>
+                            <div class="actividad">• Instalación herramientas gratuitas de seguridad</div>
+                            <div class="actividad">• Actualización plugins críticos</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">AUDITORÍA SEO INICIAL</div>
+                            <div class="actividad">• Auditoría SEO completa según formato Excel</div>
+                            <div class="actividad">• Análisis factores rastreo del sitio web</div>
+                            <div class="actividad">• Evaluación estado indexación</div>
+                            <div class="actividad">• Revisión robots.txt y meta robots</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">CONFIGURACIÓN GOOGLE ADS</div>
+                            <div class="actividad">• Setup cuentas Google Ads Chile y Brasil</div>
+                            <div class="actividad">• Configuración 3 campañas por país (enfoque marca)</div>
+                            <div class="actividad">• Configuración tracking básico</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Auditoría SEO formato Excel<br>
+                            • Cuentas SEM configuradas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S2</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">MANTENIMIENTO</div>
+                            <div class="actividad">• Actualización WordPress y plugins</div>
+                            <div class="actividad">• Verificación backup automático</div>
+                            <div class="actividad">• Revisión seguridad básica</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">KEYWORD RESEARCH</div>
+                            <div class="actividad">• Investigación keywords Chile: electrofusión, HDPE, termofusión</div>
+                            <div class="actividad">• Investigación keywords Brasil (portugués)</div>
+                            <div class="actividad">• Análisis competencia básico</div>
+                            <div class="actividad">• Priorización keywords por oportunidad</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">CAMPAÑAS MARCA</div>
+                            <div class="actividad">• Campaña marca "Agru Chile"</div>
+                            <div class="actividad">• Campaña marca "Agru Brasil"</div>
+                            <div class="actividad">• Campaña productos principales (HDPE)</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Lista keywords priorizada<br>
+                            • 3 campañas por país activas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S3</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">OPTIMIZACIÓN BÁSICA</div>
+                            <div class="actividad">• Verificación SSL y https</div>
+                            <div class="actividad">• Revisión errores 404</div>
+                            <div class="actividad">• Chequeo velocidad básica</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">OPTIMIZACIÓN ON-PAGE</div>
+                            <div class="actividad">• Ajuste títulos H1 según keyword research</div>
+                            <div class="actividad">• Optimización meta descriptions principales</div>
+                            <div class="actividad">• Corrección meta títulos duplicados</div>
+                            <div class="actividad">• Ajuste URLs amigables</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">OPTIMIZACIÓN INICIAL</div>
+                            <div class="actividad">• Ajuste pujas por performance</div>
+                            <div class="actividad">• Análisis términos búsqueda</div>
+                            <div class="actividad">• Palabras clave negativas básicas</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Meta títulos optimizados<br>
+                            • Meta descriptions ajustadas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S4</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">VERIFICACIÓN</div>
+                            <div class="actividad">• Test backup semanal</div>
+                            <div class="actividad">• Verificación herramientas seguridad</div>
+                            <div class="actividad">• Chequeo actualización plugins</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">PRIMER CONTENIDO</div>
+                            <div class="actividad">• <span class="destacado">CONTENIDO #1 ESPAÑOL</span></div>
+                            <div class="actividad">• "Ventajas de las tuberías HDPE en proyectos industriales"</div>
+                            <div class="actividad">• Traducción a portugués para Brasil</div>
+                            <div class="actividad">• Optimización SEO ambas versiones</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">ANÁLISIS PERFORMANCE</div>
+                            <div class="actividad">• Evaluación performance campañas</div>
+                            <div class="actividad">• Identificación oportunidades leads</div>
+                            <div class="actividad">• Ajuste enfoque si es viable</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• CONTENIDO #1 ES/PT<br>
+                            • CAMPAÑAS OPTIMIZADAS<br>
+                            • ANÁLISIS MENSUAL</span>
+                        </td>
+                    </tr>
+
+                    <!-- MES 2 -->
+                    <tr>
+                        <td rowspan="4" class="mes-col">MES 2<br>OPTIM</td>
+                        <td class="semana-col">S1</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">MANTENIMIENTO</div>
+                            <div class="actividad">• Backup semanal automático</div>
+                            <div class="actividad">• Actualización plugins menores</div>
+                            <div class="actividad">• Monitoreo seguridad básica</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">MONITOREO RANKINGS</div>
+                            <div class="actividad">• Setup tracking keywords principales</div>
+                            <div class="actividad">• Análisis posicionamiento inicial</div>
+                            <div class="actividad">• Identificación oportunidades mejora</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">OPTIMIZACIÓN SEM</div>
+                            <div class="actividad">• Análisis CTR y Quality Score</div>
+                            <div class="actividad">• Ajuste copys bajo rendimiento</div>
+                            <div class="actividad">• Evaluación oportunidades leads</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Rankings baseline<br>
+                            • Optimizaciones SEM
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S2</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">SEGURIDAD</div>
+                            <div class="actividad">• Verificación certificados SSL</div>
+                            <div class="actividad">• Chequeo malware básico</div>
+                            <div class="actividad">• Test integridad backup</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">OPTIMIZACIÓN TÉCNICA</div>
+                            <div class="actividad">• Optimización alt tags imágenes</div>
+                            <div class="actividad">• Mejora estructura URLs</div>
+                            <div class="actividad">• Corrección contenido duplicado básico</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">ANÁLISIS COMPETENCIA</div>
+                            <div class="actividad">• Benchmark anuncios competencia</div>
+                            <div class="actividad">• Identificación keywords competitivas</div>
+                            <div class="actividad">• Ajuste estrategia si necesario</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Alt tags optimizados<br>
+                            • Análisis competencia SEM
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S3</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">OPTIMIZACIÓN</div>
+                            <div class="actividad">• Limpieza plugins innecesarios</div>
+                            <div class="actividad">• Optimización imágenes básica</div>
+                            <div class="actividad">• Verificación formularios</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">SEGUNDO CONTENIDO</div>
+                            <div class="actividad">• <span class="destacado">CONTENIDO #2 ESPAÑOL</span></div>
+                            <div class="actividad">• "Sistemas de termofusión: aplicaciones industriales"</div>
+                            <div class="actividad">• Traducción a portugués</div>
+                            <div class="actividad">• Optimización keywords long-tail</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">EXPANSIÓN KEYWORDS</div>
+                            <div class="actividad">• Test nuevas keywords específicas</div>
+                            <div class="actividad">• Enfoque leads si viable</div>
+                            <div class="actividad">• Ajuste distribución presupuesto</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• CONTENIDO #2 ES/PT<br>
+                            • KEYWORDS EXPANDIDAS</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S4</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">MONITOREO</div>
+                            <div class="actividad">• Chequeo uptime mensual</div>
+                            <div class="actividad">• Verificación backup automático</div>
+                            <div class="actividad">• Update seguridad si necesario</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">ANÁLISIS CONTENIDO</div>
+                            <div class="actividad">• Evaluación performance contenidos</div>
+                            <div class="actividad">• Análisis engagement y tiempo en página</div>
+                            <div class="actividad">• Planificación contenido mes 3</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">ROI ANÁLISIS</div>
+                            <div class="actividad">• Análisis ROI por campaña</div>
+                            <div class="actividad">• Evaluación conversiones vs clicks</div>
+                            <div class="actividad">• Ajuste estrategia próximo mes</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• ANÁLISIS PERFORMANCE<br>
+                            • ROI CAMPAÑA POR PAÍS</span>
+                        </td>
+                    </tr>
+
+                    <!-- MES 3 -->
+                    <tr>
+                        <td rowspan="4" class="mes-col">MES 3<br>EXPAN</td>
+                        <td class="semana-col">S1</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">MANTENIMIENTO</div>
+                            <div class="actividad">• Actualización WordPress core</div>
+                            <div class="actividad">• Update plugins críticos</div>
+                            <div class="actividad">• Verificación seguridad</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">ANÁLISIS TRIMESTRAL</div>
+                            <div class="actividad">• Evaluación progreso rankings</div>
+                            <div class="actividad">• Análisis tráfico orgánico</div>
+                            <div class="actividad">• Identificación gaps contenido</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">OPTIMIZACIÓN AVANZADA</div>
+                            <div class="actividad">• Refinamiento audiences</div>
+                            <div class="actividad">• Test horarios óptimos</div>
+                            <div class="actividad">• Análisis geográfico performance</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Análisis trimestral SEO<br>
+                            • Optimización geográfica
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S2</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">OPTIMIZACIÓN</div>
+                            <div class="actividad">• Compresión imágenes adicional</div>
+                            <div class="actividad">• Limpieza base datos básica</div>
+                            <div class="actividad">• Chequeo enlaces rotos</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">MEJORAS TÉCNICAS</div>
+                            <div class="actividad">• Optimización estructura enlaces internos</div>
+                            <div class="actividad">• Mejora breadcrumbs si necesario</div>
+                            <div class="actividad">• Schema markup básico</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">A/B TEST</div>
+                            <div class="actividad">• Test diferentes ad copies</div>
+                            <div class="actividad">• Prueba extensiones anuncios</div>
+                            <div class="actividad">• Optimización landing pages</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Schema markup implementado<br>
+                            • A/B tests resultados
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S3</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">BACKUP</div>
+                            <div class="actividad">• Backup completo verificación</div>
+                            <div class="actividad">• Test restauración básico</div>
+                            <div class="actividad">• Documentación accesos</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">TERCER CONTENIDO</div>
+                            <div class="actividad">• <span class="destacado">CONTENIDO #3 ESPAÑOL</span></div>
+                            <div class="actividad">• "Soldadura de plásticos: técnicas avanzadas"</div>
+                            <div class="actividad">• Traducción portugués</div>
+                            <div class="actividad">• Optimización técnica SEO</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">LEADS FOCUS</div>
+                            <div class="actividad">• Implementación enfoque leads si viable</div>
+                            <div class="actividad">• Ajuste keywords para conversión</div>
+                            <div class="actividad">• Optimización formularios contacto</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• CONTENIDO #3 ES/PT<br>
+                            • ENFOQUE LEADS OPTIMIZADO</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S4</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">REPORTE</div>
+                            <div class="actividad">• Chequeo estabilidad trimestral</div>
+                            <div class="actividad">• Verificación herramientas</div>
+                            <div class="actividad">• Planificación Q2</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">ESTRATEGIA Q2</div>
+                            <div class="actividad">• Definición objetivos trimestre 2</div>
+                            <div class="actividad">• Priorización keywords Q2</div>
+                            <div class="actividad">• Planificación contenidos Q2</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">PLANIFICACIÓN</div>
+                            <div class="actividad">• Análisis seasonal trends</div>
+                            <div class="actividad">• Ajuste presupuestos Q2</div>
+                            <div class="actividad">• Definición KPIs trimestre 2</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• ESTRATEGIA Q2 DEFINIDA<br>
+                            • ANÁLISIS TRIMESTRAL</span>
+                        </td>
+                    </tr>
+
+                    <!-- MES 4 -->
+                    <tr>
+                        <td rowspan="4" class="mes-col">MES 4<br>CONSOL</td>
+                        <td class="semana-col">S1</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">MEJORAS Q2</div>
+                            <div class="actividad">• Implementación mejoras planificadas</div>
+                            <div class="actividad">• Actualización herramientas seguridad</div>
+                            <div class="actividad">• Optimización velocidad básica</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">ANÁLISIS PERFORMANCE</div>
+                            <div class="actividad">• Evaluación keywords mejor performance</div>
+                            <div class="actividad">• Análisis páginas mayor tráfico</div>
+                            <div class="actividad">• Identificación oportunidades</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">OPTIMIZACIÓN Q2</div>
+                            <div class="actividad">• Refinamiento campañas existentes</div>
+                            <div class="actividad">• Ajuste estrategia por performance</div>
+                            <div class="actividad">• Implementación mejores prácticas</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Mejoras velocidad<br>
+                            • Campañas refinadas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S2</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">ESTABILIDAD</div>
+                            <div class="actividad">• Monitoreo uptime mejorado</div>
+                            <div class="actividad">• Verificación backup automático</div>
+                            <div class="actividad">• Chequeo integridad BD</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">CUARTO CONTENIDO</div>
+                            <div class="actividad">• <span class="destacado">CONTENIDO #4 ESPAÑOL</span></div>
+                            <div class="actividad">• "Geomembranas: aplicaciones en ingeniería"</div>
+                            <div class="actividad">• Traducción portugués optimizada</div>
+                            <div class="actividad">• SEO técnico avanzado</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">ANÁLISIS COMPETITIVO</div>
+                            <div class="actividad">• Benchmark nuevas estrategias</div>
+                            <div class="actividad">• Análisis share of voice</div>
+                            <div class="actividad">• Identificación oportunidades</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• CONTENIDO #4 ES/PT<br>
+                            • BENCHMARK COMPETITIVO</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S3</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">OPTIMIZACIÓN</div>
+                            <div class="actividad">• Cleanup archivos innecesarios</div>
+                            <div class="actividad">• Optimización caché básica</div>
+                            <div class="actividad">• Verificación formularios</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">LINK BUILDING BÁSICO</div>
+                            <div class="actividad">• Identificación oportunidades enlaces</div>
+                            <div class="actividad">• Outreach básico industria</div>
+                            <div class="actividad">• Optimización enlaces internos</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">CONVERSIÓN FOCUS</div>
+                            <div class="actividad">• Análisis funnel conversión</div>
+                            <div class="actividad">• Optimización páginas destino</div>
+                            <div class="actividad">• Mejora calls-to-action</div>
+                        </td>
+                        <td class="entregable-col">
+                            • Link building iniciado<br>
+                            • Conversiones optimizadas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="semana-col">S4</td>
+                        <td class="webmaster-col">
+                            <div class="categoria">MANTENIMIENTO</div>
+                            <div class="actividad">• Update plugins de seguridad</div>
+                            <div class="actividad">• Verificación backup mensual</div>
+                            <div class="actividad">• Chequeo logs errores</div>
+                        </td>
+                        <td class="seo-col">
+                            <div class="categoria">ANÁLISIS LOCAL</div>
+                            <div class="actividad">• Optimización búsquedas locales</div>
+                            <div class="actividad">• Análisis performance por ciudad</div>
+                            <div class="actividad">• Ajuste estrategia geográfica</div>
+                        </td>
+                        <td class="sem-col">
+                            <div class="categoria">ROI MENSUAL</div>
+                            <div class="actividad">• Análisis ROI detallado por país</div>
+                            <div class="actividad">• Evaluación calidad leads</div>
+                            <div class="actividad">• Reporte performance mensual</div>
+                        </td>
+                        <td class="entregable-col">
+                            <span class="destacado">• OPTIMIZACIÓN LOCAL<br>
+                            • REPORTE ROI MENSUAL</span>
+                        </td>
+                    </tr>
+
+                    <!-- MES 5 -->
+                    <tr>
+                        <td rowspan="4" class
